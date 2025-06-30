@@ -92,7 +92,7 @@
                 initiator: tx-sender,
                 workflow-type: workflow-type,
                 status: "pending",
-                creation-date: stacks-block-height,
+                creation-date: block-height,
                 completion-date: u0,
                 required-approvals: required-approvals,
                 received-approvals: u0
@@ -124,7 +124,7 @@
             (map-set approver-responses approver-key {
                 approver: tx-sender,
                 approved: approved,
-                approval-date: stacks-block-height,
+                approval-date: block-height,
                 comments: comments,
                 conditions: conditions
             })
@@ -141,7 +141,7 @@
                             (map-set approval-workflows workflow-id
                                 (merge workflow {
                                     status: "approved",
-                                    completion-date: stacks-block-height,
+                                    completion-date: block-height,
                                     received-approvals: new-approval-count
                                 }))
                             true)))
@@ -159,7 +159,7 @@
             (map-set approval-workflows workflow-id
                 (merge workflow {
                     status: "rejected",
-                    completion-date: stacks-block-height
+                    completion-date: block-height
                 }))
 
             (ok true)))
